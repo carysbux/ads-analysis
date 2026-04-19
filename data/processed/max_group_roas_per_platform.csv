@@ -1,0 +1,4 @@
+platform,best_industry,best_campaign_type,total_revenue,total_ad_spend,observations,mean_row_roas,best_group_roas
+Google Ads,EdTech,Video,1540081.32,345350.93,37,5.142162162162162,4.459467707239127
+Meta Ads,SaaS,Search,465032.02,57975.91,17,7.153529411764706,8.021124981048162
+TikTok Ads,E-commerce,Search,1489578.34,139206.94,24,12.315,10.700460336244731
