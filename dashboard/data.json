@@ -1,0 +1,310 @@
+{
+  "source": "data/processed/global_ads_performance_dataset_processed.csv",
+  "row_count": 1800,
+  "platform_spend_bin_curves": [
+    {
+      "platform": "Google Ads",
+      "points": [
+        {
+          "mean_spend": 1017.8449,
+          "mean_revenue": 5254.6731,
+          "revenue_per_dollar": 5.162548,
+          "n": 72
+        },
+        {
+          "mean_spend": 2287.4432,
+          "mean_revenue": 11250.9354,
+          "revenue_per_dollar": 4.918564,
+          "n": 72
+        },
+        {
+          "mean_spend": 3557.4724,
+          "mean_revenue": 19416.3701,
+          "revenue_per_dollar": 5.457912,
+          "n": 72
+        },
+        {
+          "mean_spend": 4890.4954,
+          "mean_revenue": 22746.9608,
+          "revenue_per_dollar": 4.651259,
+          "n": 72
+        },
+        {
+          "mean_spend": 6304.8461,
+          "mean_revenue": 31909.1849,
+          "revenue_per_dollar": 5.061057,
+          "n": 72
+        },
+        {
+          "mean_spend": 7898.9747,
+          "mean_revenue": 33642.3949,
+          "revenue_per_dollar": 4.259084,
+          "n": 72
+        },
+        {
+          "mean_spend": 9882.4511,
+          "mean_revenue": 31337.2392,
+          "revenue_per_dollar": 3.170999,
+          "n": 72
+        },
+        {
+          "mean_spend": 12411.2113,
+          "mean_revenue": 37129.2557,
+          "revenue_per_dollar": 2.99159,
+          "n": 72
+        },
+        {
+          "mean_spend": 16221.296,
+          "mean_revenue": 48637.8399,
+          "revenue_per_dollar": 2.998394,
+          "n": 72
+        },
+        {
+          "mean_spend": 23712.2554,
+          "mean_revenue": 64699.3815,
+          "revenue_per_dollar": 2.728521,
+          "n": 72
+        }
+      ]
+    },
+    {
+      "platform": "Meta Ads",
+      "points": [
+        {
+          "mean_spend": 317.0497,
+          "mean_revenue": 2557.2146,
+          "revenue_per_dollar": 8.065659,
+          "n": 63
+        },
+        {
+          "mean_spend": 781.384,
+          "mean_revenue": 6191.1022,
+          "revenue_per_dollar": 7.923252,
+          "n": 63
+        },
+        {
+          "mean_spend": 1206.2595,
+          "mean_revenue": 8582.8141,
+          "revenue_per_dollar": 7.11523,
+          "n": 63
+        },
+        {
+          "mean_spend": 1614.0654,
+          "mean_revenue": 16039.4446,
+          "revenue_per_dollar": 9.937295,
+          "n": 63
+        },
+        {
+          "mean_spend": 2149.654,
+          "mean_revenue": 13269.9017,
+          "revenue_per_dollar": 6.173041,
+          "n": 63
+        },
+        {
+          "mean_spend": 2882.0048,
+          "mean_revenue": 25350.4124,
+          "revenue_per_dollar": 8.796104,
+          "n": 63
+        },
+        {
+          "mean_spend": 3684.9757,
+          "mean_revenue": 23236.4413,
+          "revenue_per_dollar": 6.305724,
+          "n": 63
+        },
+        {
+          "mean_spend": 4627.3157,
+          "mean_revenue": 29232.9783,
+          "revenue_per_dollar": 6.317481,
+          "n": 63
+        },
+        {
+          "mean_spend": 6066.9825,
+          "mean_revenue": 23192.1495,
+          "revenue_per_dollar": 3.822683,
+          "n": 63
+        },
+        {
+          "mean_spend": 10099.859,
+          "mean_revenue": 41649.8554,
+          "revenue_per_dollar": 4.123806,
+          "n": 63
+        }
+      ]
+    },
+    {
+      "platform": "TikTok Ads",
+      "points": [
+        {
+          "mean_spend": 588.3524,
+          "mean_revenue": 6790.068,
+          "revenue_per_dollar": 11.540817,
+          "n": 45
+        },
+        {
+          "mean_spend": 1398.7096,
+          "mean_revenue": 21439.4664,
+          "revenue_per_dollar": 15.328033,
+          "n": 45
+        },
+        {
+          "mean_spend": 2227.532,
+          "mean_revenue": 24923.4649,
+          "revenue_per_dollar": 11.188825,
+          "n": 45
+        },
+        {
+          "mean_spend": 3113.8429,
+          "mean_revenue": 29909.4482,
+          "revenue_per_dollar": 9.605317,
+          "n": 45
+        },
+        {
+          "mean_spend": 3916.0249,
+          "mean_revenue": 37676.4658,
+          "revenue_per_dollar": 9.6211,
+          "n": 45
+        },
+        {
+          "mean_spend": 5186.6727,
+          "mean_revenue": 64052.162,
+          "revenue_per_dollar": 12.349374,
+          "n": 45
+        },
+        {
+          "mean_spend": 6396.4424,
+          "mean_revenue": 49783.6922,
+          "revenue_per_dollar": 7.783028,
+          "n": 45
+        },
+        {
+          "mean_spend": 8200.8438,
+          "mean_revenue": 47707.0989,
+          "revenue_per_dollar": 5.81734,
+          "n": 45
+        },
+        {
+          "mean_spend": 10913.7778,
+          "mean_revenue": 70681.19,
+          "revenue_per_dollar": 6.476327,
+          "n": 45
+        },
+        {
+          "mean_spend": 17022.6573,
+          "mean_revenue": 96448.9451,
+          "revenue_per_dollar": 5.665916,
+          "n": 45
+        }
+      ]
+    }
+  ],
+  "platform_avg_cpc_cpa": [
+    {
+      "platform": "Google Ads",
+      "avg_CPC": 2.1490694444444443,
+      "avg_CPA": 64.06465277777778
+    },
+    {
+      "platform": "Meta Ads",
+      "avg_CPC": 1.316095238095238,
+      "avg_CPA": 39.096920634920636
+    },
+    {
+      "platform": "TikTok Ads",
+      "avg_CPC": 1.0099777777777779,
+      "avg_CPA": 29.196711111111114
+    }
+  ],
+  "roas_best_by_platform_industry": [
+    {
+      "platform": "Google Ads",
+      "rows": [
+        {
+          "industry": "E-commerce",
+          "best_campaign_type": "Search",
+          "best_group_roas": 4.27528
+        },
+        {
+          "industry": "EdTech",
+          "best_campaign_type": "Video",
+          "best_group_roas": 4.459468
+        },
+        {
+          "industry": "Fintech",
+          "best_campaign_type": "Display",
+          "best_group_roas": 3.901505
+        },
+        {
+          "industry": "Healthcare",
+          "best_campaign_type": "Video",
+          "best_group_roas": 3.715438
+        },
+        {
+          "industry": "SaaS",
+          "best_campaign_type": "Search",
+          "best_group_roas": 4.150986
+        }
+      ]
+    },
+    {
+      "platform": "Meta Ads",
+      "rows": [
+        {
+          "industry": "E-commerce",
+          "best_campaign_type": "Video",
+          "best_group_roas": 5.704112
+        },
+        {
+          "industry": "EdTech",
+          "best_campaign_type": "Display",
+          "best_group_roas": 6.796471
+        },
+        {
+          "industry": "Fintech",
+          "best_campaign_type": "Display",
+          "best_group_roas": 5.559777
+        },
+        {
+          "industry": "Healthcare",
+          "best_campaign_type": "Shopping",
+          "best_group_roas": 7.713885
+        },
+        {
+          "industry": "SaaS",
+          "best_campaign_type": "Search",
+          "best_group_roas": 8.021125
+        }
+      ]
+    },
+    {
+      "platform": "TikTok Ads",
+      "rows": [
+        {
+          "industry": "E-commerce",
+          "best_campaign_type": "Search",
+          "best_group_roas": 10.70046
+        },
+        {
+          "industry": "EdTech",
+          "best_campaign_type": "Search",
+          "best_group_roas": 8.636707
+        },
+        {
+          "industry": "Fintech",
+          "best_campaign_type": "Video",
+          "best_group_roas": 7.856876
+        },
+        {
+          "industry": "Healthcare",
+          "best_campaign_type": "Display",
+          "best_group_roas": 9.602411
+        },
+        {
+          "industry": "SaaS",
+          "best_campaign_type": "Search",
+          "best_group_roas": 9.683706
+        }
+      ]
+    }
+  ]
+}

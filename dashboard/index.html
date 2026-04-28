@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Global ads performance</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div>
+        <h1>Global ads performance</h1>
+        <p class="subtitle subtitle--meta" id="metaLine">Loading…</p>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card span-2 intro">
+        <h2>Project overview</h2>
+        <p>
+          This project works with a synthetic global ads performance dataset: daily rows with platform, industry,
+          campaign type, spend, revenue, and efficiency metrics. Raw inputs are in <code>data/raw/</code>; cleaned tables
+          and aggregates are in <code>data/processed/</code>.
+        </p>
+        <p class="intro__note">Analysis notebooks (<code>notebooks/</code>):</p>
+        <ul class="intro__list">
+          <li><code>preprocessing-1.ipynb</code> — cleaning and the processed performance CSV</li>
+          <li><code>spend-v-revenue-3.ipynb</code> — spend vs revenue curves by quantile bin</li>
+          <li><code>platform-efficiency-2.ipynb</code> — average CPC &amp; CPA by platform</li>
+          <li><code>campaign-industry-4.ipynb</code> — best group ROAS per platform × industry (winning campaign type)</li>
+        </ul>
+        <p>
+          Charts below are driven by <code>dashboard/data.json</code>, produced with
+          <code>python3 scripts/build_dashboard_data.py</code>.
+        </p>
+      </section>
+
+      <section class="card span-2 roas-section">
+        <h2>Best group ROAS by industry (per platform)</h2>
+        <p class="hint">
+          Same definition as <code>campaign-industry-4.ipynb</code>: group ROAS = <code>sum(revenue) / sum(ad_spend)</code> for each
+          platform × industry × campaign type; bars show the winning campaign type per industry, industries sorted A–Z, shared
+          vertical scale across panels.
+        </p>
+        <div class="roas-grid">
+          <div class="roas-panel">
+            <h3 class="roas-panel__title">Google Ads</h3>
+            <div class="chart-wrap chart-wrap--roas">
+              <canvas id="chartRoasGoogle"></canvas>
+            </div>
+          </div>
+          <div class="roas-panel">
+            <h3 class="roas-panel__title">Meta Ads</h3>
+            <div class="chart-wrap chart-wrap--roas">
+              <canvas id="chartRoasMeta"></canvas>
+            </div>
+          </div>
+          <div class="roas-panel">
+            <h3 class="roas-panel__title">TikTok Ads</h3>
+            <div class="chart-wrap chart-wrap--roas">
+              <canvas id="chartRoasTiktok"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card span-2">
+        <h2>Spend vs Revenue Curves by Platform</h2>
+        <p class="hint">
+          Ten quantile bins of <code>ad_spend</code> per platform (same as <code>spend-v-revenue-3.ipynb</code>); points are bin means.
+        </p>
+        <div class="chart-wrap chart-wrap--tall">
+          <canvas id="chartBinSpendRevenue"></canvas>
+        </div>
+      </section>
+
+      <section class="card span-2">
+        <h2>Revenue per $1 Spend by Platform (Lower = Saturation)</h2>
+        <p class="hint">
+          <code>mean_revenue / mean_spend</code> per bin vs average spend in that bin.
+        </p>
+        <div class="chart-wrap chart-wrap--tall">
+          <canvas id="chartBinRevPerDollar"></canvas>
+        </div>
+      </section>
+
+      <section class="card span-2">
+        <h2>Avg CPC vs avg CPA</h2>
+        <p class="hint">Platform averages from processed aggregates.</p>
+        <div class="chart-wrap">
+          <canvas id="chartCpcCpaScatter"></canvas>
+        </div>
+      </section>
+
+      <section class="card span-2">
+        <h2>Average CPC &amp; CPA by Platform</h2>
+        <p class="hint">
+          Same layout as <code>platform-efficiency-2.ipynb</code>: one axis (USD), blue = Avg CPC, orange = Avg CPA; platforms sorted by avg CPA (high → low).
+        </p>
+        <div class="chart-wrap chart-wrap--bars">
+          <canvas id="chartCpcCpaBars"></canvas>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
