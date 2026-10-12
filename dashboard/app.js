@@ -11,10 +11,10 @@ const SEABORN_LINE_COLORS = PLATFORM_COLORS;
 const PLATFORM_ORDER = ["Google Ads", "Meta Ads", "TikTok Ads"];
 
 const AXIS = {
-  titleColor: "#1a1d21",
-  tickColor: "#4a5058",
-  grid: "rgba(0, 0, 0, 0.07)",
-  border: "#c5cad3",
+  titleColor: "#3a3148",
+  tickColor: "#6b5f82",
+  grid: "rgba(123, 92, 255, 0.12)",
+  border: "#e4d4ff",
 };
 
 function colorForPlatform(p) {
@@ -34,7 +34,7 @@ function sortCurvesByPlatform(curves) {
 function applyGlobalChartDefaults() {
   Chart.defaults.color = AXIS.tickColor;
   Chart.defaults.borderColor = AXIS.grid;
-  Chart.defaults.font.family = "'IBM Plex Sans', system-ui, sans-serif";
+  Chart.defaults.font.family = "'Space Grotesk', system-ui, sans-serif";
 }
 
 function scaleLinear(title) {
@@ -120,7 +120,7 @@ function buildBinSpendRevenueLine(ctx, data) {
   return new Chart(ctx, {
     type: "line",
     data: { datasets },
-    options: seabornLineOptions("Average Spend per Bin", "Average Revenue per Bin"),
+    options: seabornLineOptions("Average spend per bin", "Average revenue per bin"),
   });
 }
 
@@ -148,7 +148,7 @@ function buildBinRevPerDollarLine(ctx, data) {
   return new Chart(ctx, {
     type: "line",
     data: { datasets },
-    options: seabornLineOptions("Average Spend per Bin", "Revenue per $1 Spend"),
+    options: seabornLineOptions("Average spend per bin", "Revenue per $1 spend"),
   });
 }
 
@@ -203,9 +203,9 @@ function buildCpcCpaScatter(ctx, data) {
   });
 }
 
-const BAR_CPC = "#4C78A8";
-const BAR_CPA = "#F58518";
-const BAR_ROAS = "#4C78A8";
+const BAR_CPC = "#14b8a6";
+const BAR_CPA = "#fb7185";
+const BAR_ROAS = "#ff4d8d";
 
 function maxRoasAcrossPanels(panels) {
   let m = 0;

@@ -3,107 +3,144 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Global ads performance</title>
+    <title>Global Ads Performance Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <header class="header">
-      <div>
-        <h1>Global ads performance</h1>
-        <p class="subtitle subtitle--meta" id="metaLine">Loading…</p>
-      </div>
+    <header class="main-header">
+      <p class="header-subtitle">Data Science Project</p>
+      <h1>
+        <span class="gradient">Global Ads Performance</span>
+        <span class="title-rest">Dashboard</span>
+      </h1>
+      <p class="lede">
+        Spend, revenue, and efficiency across Google Ads, Meta Ads, and TikTok Ads
+      </p>
+      <p class="subtitle subtitle--meta" id="metaLine" hidden></p>
     </header>
 
-    <main class="grid">
-      <section class="card span-2 intro">
-        <h2>Project overview</h2>
-        <p>
-          This project works with a synthetic global ads performance dataset: daily rows with platform, industry,
-          campaign type, spend, revenue, and efficiency metrics. Raw inputs are in <code>data/raw/</code>; cleaned tables
-          and aggregates are in <code>data/processed/</code>.
-        </p>
-        <p class="intro__note">Analysis notebooks (<code>notebooks/</code>):</p>
-        <ul class="intro__list">
-          <li><code>preprocessing-1.ipynb</code> — cleaning and the processed performance CSV</li>
-          <li><code>spend-v-revenue-3.ipynb</code> — spend vs revenue curves by quantile bin</li>
-          <li><code>platform-efficiency-2.ipynb</code> — average CPC &amp; CPA by platform</li>
-          <li><code>campaign-industry-4.ipynb</code> — best group ROAS per platform × industry (winning campaign type)</li>
-        </ul>
-        <p>
-          Charts below are driven by <code>dashboard/data.json</code>, produced with
-          <code>python3 scripts/build_dashboard_data.py</code>.
-        </p>
-      </section>
+    <section class="intro-section">
+      <h2>Introduction</h2>
+      <p>
+        This dashboard explores a synthetic global ads performance dataset: daily rows with platform,
+        industry, campaign type, spend, revenue, and efficiency metrics. Charts are driven by
+        <code>dashboard/data.json</code>, built from the cleaned tables in
+        <code>data/processed/</code>.
+      </p>
+      <h3>Goals</h3>
+      <p>• Compare cost efficiency (CPC and CPA) across Google Ads, Meta Ads, and TikTok Ads.</p>
+      <p>• See how revenue scales with spend, and where returns start to flatten.</p>
+      <p>• Identify the winning campaign type (best group ROAS) for each platform × industry.</p>
+    </section>
 
-      <section class="card span-2 roas-section">
-        <h2>Best group ROAS by industry (per platform)</h2>
-        <p class="hint">
-          Same definition as <code>campaign-industry-4.ipynb</code>: group ROAS = <code>sum(revenue) / sum(ad_spend)</code> for each
-          platform × industry × campaign type; bars show the winning campaign type per industry, industries sorted A–Z, shared
-          vertical scale across panels.
-        </p>
-        <div class="roas-grid">
-          <div class="roas-panel">
-            <h3 class="roas-panel__title">Google Ads</h3>
-            <div class="chart-wrap chart-wrap--roas">
-              <canvas id="chartRoasGoogle"></canvas>
-            </div>
-          </div>
-          <div class="roas-panel">
-            <h3 class="roas-panel__title">Meta Ads</h3>
-            <div class="chart-wrap chart-wrap--roas">
-              <canvas id="chartRoasMeta"></canvas>
-            </div>
-          </div>
-          <div class="roas-panel">
-            <h3 class="roas-panel__title">TikTok Ads</h3>
-            <div class="chart-wrap chart-wrap--roas">
-              <canvas id="chartRoasTiktok"></canvas>
-            </div>
+    <h2>Ads performance analysis by platform</h2>
+    <figure class="graphic-section">
+      <img
+        src="ads-by-platform.png"
+        alt="Illustrator graphic: ads performance analysis by platform, with a CPC vs CPA efficiency map, spend vs revenue curves, and average CPC and CPA bars for Google, Meta, and TikTok"
+      />
+      <figcaption>
+        Revenue increases as spend increases across all three platforms. Google Ads produces the
+        highest revenue ceiling at higher spend levels, while Meta Ads and TikTok Ads grow at a
+        steadier and lower trajectory. TikTok Ads is the best overall choice for efficiency and cost
+        control. Google Ads is the best choice for top-end revenue scale when a higher budget is
+        available.
+      </figcaption>
+    </figure>
+
+    <h2>Best group ROAS by industry (per platform)</h2>
+    <p class="target-summary">
+      Group ROAS is <code>sum(revenue) / sum(ad_spend)</code> for each platform × industry × campaign
+      type. Bars show the winning campaign type per industry, with a shared vertical scale.
+    </p>
+    <section class="chart-container roas-section">
+      <div class="roas-grid">
+        <div class="roas-panel">
+          <h3 class="roas-panel__title">Google Ads</h3>
+          <div class="chart-wrap chart-wrap--roas">
+            <canvas id="chartRoasGoogle"></canvas>
           </div>
         </div>
-      </section>
-
-      <section class="card span-2">
-        <h2>Spend vs Revenue Curves by Platform</h2>
-        <p class="hint">
-          Ten quantile bins of <code>ad_spend</code> per platform (same as <code>spend-v-revenue-3.ipynb</code>); points are bin means.
-        </p>
-        <div class="chart-wrap chart-wrap--tall">
-          <canvas id="chartBinSpendRevenue"></canvas>
+        <div class="roas-panel">
+          <h3 class="roas-panel__title">Meta Ads</h3>
+          <div class="chart-wrap chart-wrap--roas">
+            <canvas id="chartRoasMeta"></canvas>
+          </div>
         </div>
-      </section>
-
-      <section class="card span-2">
-        <h2>Revenue per $1 Spend by Platform (Lower = Saturation)</h2>
-        <p class="hint">
-          <code>mean_revenue / mean_spend</code> per bin vs average spend in that bin.
-        </p>
-        <div class="chart-wrap chart-wrap--tall">
-          <canvas id="chartBinRevPerDollar"></canvas>
+        <div class="roas-panel">
+          <h3 class="roas-panel__title">TikTok Ads</h3>
+          <div class="chart-wrap chart-wrap--roas">
+            <canvas id="chartRoasTiktok"></canvas>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="card span-2">
-        <h2>Avg CPC vs avg CPA</h2>
-        <p class="hint">Platform averages from processed aggregates.</p>
-        <div class="chart-wrap">
-          <canvas id="chartCpcCpaScatter"></canvas>
-        </div>
-      </section>
+    <h2>Spend vs revenue curves by platform</h2>
+    <p class="target-summary">
+      Ten quantile bins of ad spend per platform; points are bin means. Revenue rises with spend on
+      all three platforms; Google Ads has the highest ceiling at larger budgets.
+    </p>
+    <section class="chart-container">
+      <div class="chart-wrap chart-wrap--tall">
+        <canvas id="chartBinSpendRevenue"></canvas>
+      </div>
+    </section>
 
-      <section class="card span-2">
-        <h2>Average CPC &amp; CPA by Platform</h2>
-        <p class="hint">
-          Same layout as <code>platform-efficiency-2.ipynb</code>: one axis (USD), blue = Avg CPC, orange = Avg CPA; platforms sorted by avg CPA (high → low).
-        </p>
-        <div class="chart-wrap chart-wrap--bars">
-          <canvas id="chartCpcCpaBars"></canvas>
-        </div>
-      </section>
-    </main>
+    <h2>Revenue per $1 spend by platform</h2>
+    <p class="target-summary">
+      <code>mean_revenue / mean_spend</code> per bin versus average spend in that bin. Lower values
+      at higher spend point toward saturation.
+    </p>
+    <section class="chart-container">
+      <div class="chart-wrap chart-wrap--tall">
+        <canvas id="chartBinRevPerDollar"></canvas>
+      </div>
+    </section>
+
+    <h2>Avg CPC vs avg CPA</h2>
+    <p class="target-summary">
+      Platform averages from the processed aggregates. TikTok Ads sits in the low-cost, high-efficiency
+      corner; Google Ads is higher cost on both axes.
+    </p>
+    <section class="chart-container">
+      <div class="chart-wrap">
+        <canvas id="chartCpcCpaScatter"></canvas>
+      </div>
+    </section>
+
+    <h2>Average CPC &amp; CPA by platform</h2>
+    <p class="target-summary">
+      One axis (USD): teal = Avg CPC, coral = Avg CPA. Platforms sorted by avg CPA, high to low.
+    </p>
+    <section class="chart-container">
+      <div class="chart-wrap chart-wrap--bars">
+        <canvas id="chartCpcCpaBars"></canvas>
+      </div>
+    </section>
+
+    <section class="end-section">
+      <h2>Notes</h2>
+      <ul>
+        <li>The dataset is synthetic: patterns are useful for method, not for live bidding decisions.</li>
+        <li>Bin curves use ten quantile bins of ad spend within each platform.</li>
+        <li>ROAS winners can shift if spend mix by campaign type is uneven inside an industry.</li>
+      </ul>
+      <h3>In the Future</h3>
+      <ul>
+        <li>Add seasonality and day-of-week views on the same spend and efficiency metrics.</li>
+        <li>Compare campaign types as a dedicated small-multiples view, not only as ROAS labels.</li>
+        <li>Test non-linear spend–revenue fits instead of quantile bin means alone.</li>
+      </ul>
+    </section>
   </body>
 </html>
